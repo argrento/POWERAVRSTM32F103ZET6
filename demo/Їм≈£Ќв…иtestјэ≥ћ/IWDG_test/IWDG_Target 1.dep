@@ -1,0 +1,8 @@
+Dependencies for Project 'IWDG', Target 'Target 1': (DO NOT MODIFY !)
+F (.\cortexm3_macro.s)(0x478AFC40)(--device DARMSTM -g --apcs=interwork -I "D:\Keil\ARM\INC\ST\STM32F10x" --list "..\listing\cortexm3_macro.lst" --xref -o "..\obj\cortexm3_macro.o")
+F (.\stm32f10x_vector.s)(0x478AFC40)(--device DARMSTM -g --apcs=interwork -I "D:\Keil\ARM\INC\ST\STM32F10x" --list "..\listing\stm32f10x_vector.lst" --xref -o "..\obj\stm32f10x_vector.o")
+F (.\main.c)(0x478AFC40)(-c --device DARMSTM -g -O0 --apcs=interwork -I..\..\library\inc -I..\..\library\src -I..\uvsion -I "D:\Keil\ARM\INC\ST\STM32F10x" -o "..\obj\main.o" --omf_browse "..\obj\main.crf" --depend "..\obj\main.d")
+F (.\stm32f10x_it.c)(0x478AFC40)(-c --device DARMSTM -g -O0 --apcs=interwork -I..\..\library\inc -I..\..\library\src -I..\uvsion -I "D:\Keil\ARM\INC\ST\STM32F10x" -o "..\obj\stm32f10x_it.o" --omf_browse "..\obj\stm32f10x_it.crf" --depend "..\obj\stm32f10x_it.d")
+F (.\readme.txt)(0x478AFC40)()
+F (..\common\STM32F10xD.LIB)(0x479AFC6C)()
+F (..\common\STM32F10xR.LIB)(0x479AFC6C)()

@@ -1,0 +1,7 @@
+Dependencies for Project 'DMA', Target 'DMA': (DO NOT MODIFY !)
+F (.\STM32F10x.s)(0x48E9C1B8)(--device DARMSTM -g --apcs=interwork -I "C:\Keil\ARM\INC\ST\STM32F10x" --list ".\listing\STM32F10x.lst" --xref -o ".\output\STM32F10x.o")
+F (.\stm32f10x_it.c)(0x48EB0674)(-c --device DARMSTM -g -O3 --apcs=interwork --asm --interleave -I..\common\library -I..\common\usb_library -I "C:\Keil\ARM\INC\ST\STM32F10x" -o ".\output\stm32f10x_it.o" --omf_browse ".\output\stm32f10x_it.crf" --depend ".\output\stm32f10x_it.d")
+I (stm32f10x_it.h)(0x48E9C1B8)
+F (D:\开发板使用\test\common\STM32F10xR.lib)(0x00000000)()
+F (.\main.c)(0x4A1BF5BA)(-c --cpu Cortex-M3 -g -O3 --apcs=interwork --asm --interleave -I..\common\library -I..\common\usb_library -I "d:\Keil\\ARM\INC" -I "d:\Keil\\ARM\INC\ST\STM32F10x" -o ".\output\main.o" --omf_browse ".\output\main.crf" --depend ".\output\main.d")
+F (.\readme.txt)(0x4A1BF5BA)()

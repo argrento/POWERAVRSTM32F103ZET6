@@ -1,0 +1,8 @@
+Dependencies for Project 'Project', Target 'STM3210B-EVAL': (DO NOT MODIFY !)
+F (.\stm32f10x_it.c)(0x48D84538)(-c --device DARMSTM -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I "C:\Keil\ARM\INC\ST\STM32F10x" -o ".\Obj\stm32f10x_it.o" --omf_browse ".\Obj\stm32f10x_it.crf" --depend ".\Obj\stm32f10x_it.d")
+F (.\main.c)(0x48D84538)(-c --device DARMSTM -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I "C:\Keil\ARM\INC\ST\STM32F10x" -o ".\Obj\main.o" --omf_browse ".\Obj\main.crf" --depend ".\Obj\main.d")
+F (.\fsmc_nor.c)(0x48D84538)(-c --device DARMSTM -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I "C:\Keil\ARM\INC\ST\STM32F10x" -o ".\Obj\fsmc_nor.o" --omf_browse ".\Obj\fsmc_nor.crf" --depend ".\Obj\fsmc_nor.d")
+F (C:\Keil\ARM\RV31\LIB\ST\STM32F10xR.LIB)(0x498166B4)()
+F (.\stm32f10x_vector.s)(0x48D5E3CE)(--device DARMSTM -g --apcs=interwork --pd "__MICROLIB SETA 1" -I "C:\Keil\ARM\INC\ST\STM32F10x" --list ".\Lst\stm32f10x_vector.lst" --xref -o ".\Obj\stm32f10x_vector.o")
+F (.\cortexm3_macro.s)(0x48D5E3CE)(--device DARMSTM -g --apcs=interwork --pd "__MICROLIB SETA 1" -I "C:\Keil\ARM\INC\ST\STM32F10x" --list ".\Lst\cortexm3_macro.lst" --xref -o ".\Obj\cortexm3_macro.o")
+F (.\readme.txt)(0x48D84538)()

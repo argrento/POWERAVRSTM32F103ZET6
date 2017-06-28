@@ -1,0 +1,250 @@
+<!DOCTYPE Project SYSTEM "http://www.slickedit.com/dtd/vse/10.0/vpj.dtd">
+<Project
+	BuildSystem="vsbuild"
+	BuildMakeFile=""
+	Version="10.0"
+	VendorName="SlickEdit"
+	WorkingDir=".">
+	<Config
+		Name="Debug"
+		Type="cpp"
+		DebugCallbackName="gdb"
+		OutputFile="%bdtest"
+		CompilerConfigName="Latest Version">
+		<Menu>
+			<Target
+				Name="Compile"
+				MenuCaption="&amp;Compile"
+				CaptureOutputWith="ProcessBuffer"
+				OutputExts="*.o"
+				SaveOption="SaveCurrent"
+				RunFromDir="%rw">
+				<Set
+					Name="RVCT22BIN"
+					Value="D:\DevTool\Keil\ARM\BIN31"/>
+				<Exec CmdLine='D:\DevTool\Keil\ARM\BIN31\armcc.exe -c  -g -O0 --apcs=interwork -I "D:\DevTool\Keil\ARM\INC\ST\STM32F10x" -o ".\Obj\*.o" --omf_browse ".\Obj\*.crf" --depend ".\Obj\*.d"'/>
+			</Target>
+			<Target
+				Name="Link"
+				MenuCaption="&amp;Link">
+				<Exec CmdLine='D:\DevTool\Keil\ARM\BIN31\armLINK.exe *.o --device DARMSTM --strict --scatter ".\Obj\project.sct" '/>
+			</Target>
+			<Target
+				Name="Build"
+				MenuCaption="&amp;Build"
+				CaptureOutputWith="ProcessBuffer"
+				SaveOption="SaveWorkspaceFiles"
+				RunFromDir="%rw">
+				<Exec CmdLine='"%(VSLICKBIN1)vsbuild" build "%w" "%r"'/>
+			</Target>
+			<Target
+				Name="Rebuild"
+				MenuCaption="&amp;Rebuild"
+				CaptureOutputWith="ProcessBuffer"
+				SaveOption="SaveWorkspaceFiles"
+				RunFromDir="%rw">
+				<Exec CmdLine='"%(VSLICKBIN1)vsbuild" rebuild "%w" "%r"'/>
+			</Target>
+			<Target
+				Name="Debug"
+				MenuCaption="&amp;Debug"
+				SaveOption="SaveNone"
+				BuildFirst="1"
+				CaptureOutputWith="ProcessBuffer"
+				RunFromDir="%rw">
+				<Exec CmdLine='vsdebugio -prog "%o"'/>
+			</Target>
+			<Target
+				Name="Execute"
+				MenuCaption="E&amp;xecute"
+				SaveOption="SaveNone"
+				BuildFirst="1"
+				CaptureOutputWith="ProcessBuffer"
+				RunFromDir="%rw">
+				<Exec CmdLine='"%o"'/>
+			</Target>
+		</Menu>
+		<PostBuildCommands>
+			<Exec CmdLine="%(RVCT22BIN)\fromelf.exe --bin --OUTPUT %RN_%b.bin %RN_%b.axf"/>
+		</PostBuildCommands>
+		<Includes>
+			<Include Dir="D:/DevTool/Keil/ARM/RV31/INC/"/>
+		</Includes>
+	</Config>
+	<Config
+		Name="Release"
+		Type="cpp"
+		DebugCallbackName="gdb"
+		OutputFile="%bdtest"
+		CompilerConfigName="Latest Version">
+		<Menu>
+			<Target
+				Name="Compile"
+				MenuCaption="&amp;Compile"
+				CaptureOutputWith="ProcessBuffer"
+				SaveOption="SaveCurrent"
+				OutputExts="*.o"
+				RunFromDir="%rw">
+				<Exec CmdLine='D:\DevTool\Keil\ARM\BIN31\armcc.exe -c  -g -O0 --apcs=interwork -I "D:\DevTool\Keil\ARM\INC\ST\STM32F10x" -o ".\Obj\*.o" --omf_browse ".\Obj\*.crf" --depend ".\Obj\*.d"'/>
+			</Target>
+			<Target
+				Name="Link"
+				MenuCaption="&amp;Link">
+				<Exec CmdLine='D:\DevTool\Keil\ARM\BIN31\armLINK.exe *.o --device DARMSTM --strict --scatter ".\Obj\project.sct" '/>
+			</Target>
+			<Target
+				Name="Build"
+				MenuCaption="&amp;Build"
+				CaptureOutputWith="ProcessBuffer"
+				SaveOption="SaveWorkspaceFiles"
+				RunFromDir="%rw">
+				<Exec CmdLine='"%(VSLICKBIN1)vsbuild" build "%w" "%r"'/>
+			</Target>
+			<Target
+				Name="Rebuild"
+				MenuCaption="&amp;Rebuild"
+				CaptureOutputWith="ProcessBuffer"
+				SaveOption="SaveWorkspaceFiles"
+				RunFromDir="%rw">
+				<Exec CmdLine='"%(VSLICKBIN1)vsbuild" rebuild "%w" "%r"'/>
+			</Target>
+			<Target
+				Name="Debug"
+				MenuCaption="&amp;Debug"
+				SaveOption="SaveNone"
+				BuildFirst="1"
+				CaptureOutputWith="ProcessBuffer"
+				RunFromDir="%rw">
+				<Exec CmdLine='vsdebugio -prog "%o"'/>
+			</Target>
+			<Target
+				Name="Execute"
+				MenuCaption="E&amp;xecute"
+				SaveOption="SaveNone"
+				BuildFirst="1"
+				CaptureOutputWith="ProcessBuffer"
+				RunFromDir="%rw">
+				<Exec CmdLine='"%o"'/>
+			</Target>
+		</Menu>
+	</Config>
+	<Rules Name="Compile">
+		<Rule
+			InputExts="*.s"
+			OutputExts="*.o"
+			LinkObject="1">
+			<Exec CmdLine='D:\DevTool\Keil\ARM\BIN31\armasm.exe --device DARMSTM -g --apcs=interwork -I "D:\DevTool\Keil\ARM\INC\ST\STM32F10x" --list ".\Obj\*.lst" --xref -o "*.o"'/>
+		</Rule>
+	</Rules>
+	<Files>
+		<Folder
+			Name="Source Files"
+			Filters="*.c;*.C;*.cc;*.cpp;*.cp;*.cxx;*.c++;*.prg;*.pas;*.dpr;*.asm;*.s;*.bas;*.java;*.cs;*.sc;*.e;*.cob;*.html;*.rc;*.tcl;*.py;*.pl">
+			<Folder
+				Name="Core"
+				Filters="">
+				<F N="Core/cortexm3_macro.s"/>
+				<F N="Core/stm32f10x_vector.s"/>
+			</Folder>
+			<Folder
+				Name="User"
+				Filters="">
+				<Folder
+					Name="FatFS"
+					Filters="">
+					<F N="User/FATFS/diskio.c"/>
+					<F N="User/FATFS/tff.c"/>
+				</Folder>
+				<F
+					N="*.c"
+					Recurse="0"
+					Refilter="0"
+					Excludes=""/>
+				<F N="User/Init.c"/>
+				<F N="User/main.c"/>
+				<F N="User/RTC_Time.c"/>
+				<F N="User/SPI_SD_driver.c"/>
+				<F N="User/stm32f10x_it.c"/>
+				<F N="User/USART_printp.c"/>
+			</Folder>
+			<Folder
+				Name="FWLib"
+				Filters="">
+				<F N="FWLib/src/stm32f10x_adc.c"/>
+				<F N="FWLib/src/stm32f10x_bkp.c"/>
+				<F N="FWLib/src/stm32f10x_can.c"/>
+				<F N="FWLib/src/stm32f10x_crc.c"/>
+				<F N="FWLib/src/stm32f10x_dac.c"/>
+				<F N="FWLib/src/stm32f10x_dbgmcu.c"/>
+				<F N="FWLib/src/stm32f10x_dma.c"/>
+				<F N="FWLib/src/stm32f10x_exti.c"/>
+				<F N="FWLib/src/stm32f10x_flash.c"/>
+				<F N="FWLib/src/stm32f10x_fsmc.c"/>
+				<F N="FWLib/src/stm32f10x_gpio.c"/>
+				<F N="FWLib/src/stm32f10x_i2c.c"/>
+				<F N="FWLib/src/stm32f10x_iwdg.c"/>
+				<F N="FWLib/src/stm32f10x_lib.c"/>
+				<F N="FWLib/src/stm32f10x_nvic.c"/>
+				<F N="FWLib/src/stm32f10x_pwr.c"/>
+				<F N="FWLib/src/stm32f10x_rcc.c"/>
+				<F N="FWLib/src/stm32f10x_rtc.c"/>
+				<F N="FWLib/src/stm32f10x_sdio.c"/>
+				<F N="FWLib/src/stm32f10x_spi.c"/>
+				<F N="FWLib/src/stm32f10x_systick.c"/>
+				<F N="FWLib/src/stm32f10x_tim.c"/>
+				<F N="FWLib/src/stm32f10x_usart.c"/>
+				<F N="FWLib/src/stm32f10x_wwdg.c"/>
+			</Folder>
+		</Folder>
+		<Folder
+			Name="Header Files"
+			Filters="*.h;*.H;*.hh;*.hpp;*.hxx;*.inc;*.sh;*.cpy;*.if">
+			<F N="User/common.h"/>
+			<F N="FWLib/inc/cortexm3_macro.h"/>
+			<F N="User/FATFS/diskio.h"/>
+			<F N="User/FATFS/ff.h"/>
+			<F N="User/FATFS/integer.h"/>
+			<F N="User/printp.h"/>
+			<F N="User/RTC_Time.h"/>
+			<F N="User/SPI_SD_driver.h"/>
+			<F N="FWLib/inc/stm32f10x_adc.h"/>
+			<F N="FWLib/inc/stm32f10x_bkp.h"/>
+			<F N="FWLib/inc/stm32f10x_can.h"/>
+			<F N="User/stm32f10x_conf.h"/>
+			<F N="FWLib/inc/stm32f10x_crc.h"/>
+			<F N="FWLib/inc/stm32f10x_dac.h"/>
+			<F N="FWLib/inc/stm32f10x_dbgmcu.h"/>
+			<F N="FWLib/inc/stm32f10x_dma.h"/>
+			<F N="FWLib/inc/stm32f10x_exti.h"/>
+			<F N="FWLib/inc/stm32f10x_flash.h"/>
+			<F N="FWLib/inc/stm32f10x_fsmc.h"/>
+			<F N="FWLib/inc/stm32f10x_gpio.h"/>
+			<F N="FWLib/inc/stm32f10x_i2c.h"/>
+			<F N="User/stm32f10x_it.h"/>
+			<F N="FWLib/inc/stm32f10x_iwdg.h"/>
+			<F N="FWLib/inc/stm32f10x_lib.h"/>
+			<F N="FWLib/inc/stm32f10x_map.h"/>
+			<F N="FWLib/inc/stm32f10x_nvic.h"/>
+			<F N="FWLib/inc/stm32f10x_pwr.h"/>
+			<F N="FWLib/inc/stm32f10x_rcc.h"/>
+			<F N="FWLib/inc/stm32f10x_rtc.h"/>
+			<F N="FWLib/inc/stm32f10x_sdio.h"/>
+			<F N="FWLib/inc/stm32f10x_spi.h"/>
+			<F N="FWLib/inc/stm32f10x_systick.h"/>
+			<F N="FWLib/inc/stm32f10x_tim.h"/>
+			<F N="FWLib/inc/stm32f10x_type.h"/>
+			<F N="FWLib/inc/stm32f10x_usart.h"/>
+			<F N="FWLib/inc/stm32f10x_wwdg.h"/>
+			<F N="User/FATFS/tff.h"/>
+		</Folder>
+		<Folder
+			Name="Resource Files"
+			Filters="*.ico;*.cur;*.dlg"/>
+		<Folder
+			Name="Bitmaps"
+			Filters="*.bmp"/>
+		<Folder
+			Name="Other Files"
+			Filters=""/>
+	</Files>
+</Project>

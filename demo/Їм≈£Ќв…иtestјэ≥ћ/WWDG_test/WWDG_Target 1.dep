@@ -1,0 +1,4 @@
+Dependencies for Project 'WWDG', Target 'Target 1': (DO NOT MODIFY !)
+F (.\main.c)(0x478AFC40)(-c --device DARMSTM -g -O0 --apcs=interwork -I..\..\library\inc -I..\..\library\src -I..\uvsion -I "D:\Keil\ARM\INC\ST\STM32F10x" -o "..\obj\main.o" --omf_browse "..\obj\main.crf" --depend "..\obj\main.d")
+F (.\stm32f10x_it.c)(0x478AFC40)(-c --device DARMSTM -g -O0 --apcs=interwork -I..\..\library\inc -I..\..\library\src -I..\uvsion -I "D:\Keil\ARM\INC\ST\STM32F10x" -o "..\obj\stm32f10x_it.o" --omf_browse "..\obj\stm32f10x_it.crf" --depend "..\obj\stm32f10x_it.d")
+F (.\readme.txt)(0x478AFC40)()

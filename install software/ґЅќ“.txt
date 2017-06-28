@@ -1,0 +1,15 @@
+mdk3.80a.rar            // 开发软件
+
+MDK380a注册机.rar       // 
+
+rlarm400.rar            //
+
+Jlink仿真器驱动程序.rar //
+
+stm32f105-7_update_for_arm-mdk.rar  //
+
+开发工具用MDK3.80a 本目录下有注册机装好后，可以注册为专业版。 然后再打一个补丁用于支持STM32F105和STM32F107系列。补丁文件名为：stm32f105-7_update_for_arm-mdk.RAR里面带按装详细步骤。
+
+
+
+

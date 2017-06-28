@@ -1,0 +1,8 @@
+
+uCOS+uCGUI(FSMC)2.8.RAR     //2.8寸屏的UCGUI出厂测试程序。
+
+uCOS+uCGUI(FSMC)3.2.RAR     //3.2寸屏的UCGUI出厂测试程序。
+
+UCGUI_LIB.RAR           //是UCGUI的原代码,用于打包成库文件，编译后生成库文件。配置好UCGUI把生成的库文件当到以上两个工程里。
+
+用户根据板上所配的屏烧对应的出厂测试程序即可。
